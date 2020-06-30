@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: reparIdle
+  m_Name: reparWalk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 9109230682891289496, guid: 0880c61463672e44fab1b0f03c03d895,
+      value: {fileID: -887181142718353095, guid: aad7611f01a610343ac0cc53d9827a38,
         type: 3}
-    - time: 0.25
-      value: {fileID: 2251313439968573433, guid: 0880c61463672e44fab1b0f03c03d895,
+    - time: 0.083333336
+      value: {fileID: -978687100382948105, guid: aad7611f01a610343ac0cc53d9827a38,
         type: 3}
-    - time: 0.5
-      value: {fileID: 155029210991440707, guid: 0880c61463672e44fab1b0f03c03d895,
+    - time: 0.26666668
+      value: {fileID: 3188292677764741209, guid: aad7611f01a610343ac0cc53d9827a38,
+        type: 3}
+    - time: 0.41666666
+      value: {fileID: 7425963711996787797, guid: aad7611f01a610343ac0cc53d9827a38,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -47,15 +50,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 9109230682891289496, guid: 0880c61463672e44fab1b0f03c03d895, type: 3}
-    - {fileID: 2251313439968573433, guid: 0880c61463672e44fab1b0f03c03d895, type: 3}
-    - {fileID: 155029210991440707, guid: 0880c61463672e44fab1b0f03c03d895, type: 3}
+    - {fileID: -887181142718353095, guid: aad7611f01a610343ac0cc53d9827a38, type: 3}
+    - {fileID: -978687100382948105, guid: aad7611f01a610343ac0cc53d9827a38, type: 3}
+    - {fileID: 3188292677764741209, guid: aad7611f01a610343ac0cc53d9827a38, type: 3}
+    - {fileID: 7425963711996787797, guid: aad7611f01a610343ac0cc53d9827a38, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.43333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
