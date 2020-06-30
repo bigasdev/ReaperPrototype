@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Collectables : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public int lifeHits = 3;
+
+    public void Update()
     {
-        if(gameObject.tag == "Cursor")
+        if (lifeHits <= 0)
         {
-            Debug.Log("Sim");
+            Destroy(gameObject);
         }
     }
 }
