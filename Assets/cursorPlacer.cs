@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class cursorPlacer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public Camera cam;
+    private Vector3 mouseScreenPos;
+    public GameObject pointer;
+
+    private void Start()
     {
-        
+        Cursor.visible = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        mouseScreenPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        pointer.transform.position = new Vector2(Mathf.RoundToInt(mouseScreenPos.x) , Mathf.RoundToInt(mouseScreenPos.y));
     }
 }
