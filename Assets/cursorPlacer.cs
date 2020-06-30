@@ -11,6 +11,7 @@ public class cursorPlacer : MonoBehaviour
     private Collectables coll;
     public Animator anim;
     private int hpbar = 0;
+    public ParticleSystem dust;
     private void Start()
     {
     }
@@ -27,14 +28,14 @@ public class cursorPlacer : MonoBehaviour
             cursorPos = hit.collider.gameObject.transform.position;
             pointer.transform.position = new Vector2(cursorPos.x, cursorPos.y);
             coll = hit.collider.GetComponent<Collectables>();
-
+            
             if(Input.GetButton("Fire1") && timer >= .5f)
             {
                 timer = 0;
                 Debug.Log("Hit");
                 coll.lifeHits -= 1;
                 hpbar += 1;
-
+                dust.Play();
             }
         }
         else
@@ -49,5 +50,10 @@ public class cursorPlacer : MonoBehaviour
 
         anim.SetInteger("HP", hpbar);
 
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
     }
 }

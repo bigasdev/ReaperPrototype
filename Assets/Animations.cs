@@ -5,12 +5,17 @@ using UnityEngine;
 public class Animations : MonoBehaviour
 {
     public Animator anim;
+    public GameObject particle;
+    public Transform foot;
+    public ParticleSystem dust;
     
     private void FixedUpdate()
     {
         if(Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.W) || (Input.GetKey(KeyCode.S))))
         {
             anim.SetBool("isWalking", true);
+            CreateDust();
+
         }
         else
         {
@@ -25,5 +30,10 @@ public class Animations : MonoBehaviour
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
     }
 }
