@@ -11,6 +11,7 @@ public class oresGet : MonoBehaviour
     private float timer;
     public float distance;
     private GameObject player;
+    public bool stone;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,6 +42,14 @@ public class oresGet : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            if(stone != true)
+            {
+                resourceHolder.wood += 1;
+            }
+            else
+            {
+                resourceHolder.stone += 1;
+            }
             Destroy(gameObject);
         }
     }

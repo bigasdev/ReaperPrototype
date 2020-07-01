@@ -181,6 +181,7 @@ MonoBehaviour:
   oreForce: 45
   magnetSpeed: 3
   distance: 1.5
+  stone: 1
 --- !u!50 &6634901496171069077
 Rigidbody2D:
   serializedVersion: 4
