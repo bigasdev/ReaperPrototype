@@ -12,48 +12,52 @@ public class cursorPlacer : MonoBehaviour
     public Animator anim;
     private int hpbar = 0;
     public ParticleSystem dust;
-    private void Start()
+    private SpriteRenderer opacity;
+    public LayerMask rock;
+
+    public void Start()
     {
+        opacity = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
+        opacity.color = new Color(0f, 0f, 0f, 0f);
         timer += Time.deltaTime;
-        
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        
-        if (hit.collider != null)
+
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, rock);
+
+        if (hit)
         {
-            hp.SetActive(true);
-            cursorPos = hit.collider.gameObject.transform.position;
-            pointer.transform.position = new Vector2(cursorPos.x, cursorPos.y);
-            coll = hit.collider.GetComponent<Collectables>();
-            
-            if(Input.GetButton("Fire1") && timer >= .5f)
+            if (hit.collider.tag == "Rocks")
             {
-                timer = 0;
-                Debug.Log("Hit");
-                coll.lifeHits -= 1;
-                hpbar += 1;
-                dust.Play();
+                opacity.color = new Color(1f, 1f, 1f, 1f);
+                hp.SetActive(true);
+
+                cursorPos = hit.collider.gameObject.transform.position;
+                pointer.transform.position = new Vector2(cursorPos.x, cursorPos.y);
+                coll = hit.collider.GetComponent<Collectables>();
+
+                if (Input.GetButton("Fire1") && timer >= .5f)
+                {
+                    timer = 0;
+                    coll.lifeHits -= 1;
+                    hpbar += 1;
+                    dust.Play();
+                }
             }
+            else
+            {
+                hp.SetActive(false);
+            }
+
+            if (hpbar == 3)
+            {
+                hpbar = 0;
+            }
+
+            anim.SetInteger("HP", hpbar);
         }
-        else
-        {
-            hp.SetActive(false);
-        }
 
-        if(hpbar == 3)
-        {
-            hpbar = 0;
-        }
-
-        anim.SetInteger("HP", hpbar);
-
-    }
-
-    void CreateDust()
-    {
-        dust.Play();
     }
 }
