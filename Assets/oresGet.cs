@@ -28,9 +28,12 @@ public class oresGet : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
-        if((Vector3.Distance(transform.position, player.transform.position) < distance))
+        if (timer >= 1f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * magnetSpeed);
+            if ((Vector3.Distance(transform.position, player.transform.position) < distance))
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * magnetSpeed);
+            }
         }
     }
 

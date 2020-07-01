@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectables : MonoBehaviour
 {
-    public int lifeHits = 3;
+    public float lifeHits = 3;
     private int randomN;
     public Transform[] orepositions;
     private bool destroyed;
@@ -39,5 +39,10 @@ public class Collectables : MonoBehaviour
                 Instantiate(shards, orepositions[0].position, orepositions[0].rotation);
             }
         }
+    }
+
+    public void hitTaken(float damage)
+    {
+        lifeHits -= damage;
     }
 }
