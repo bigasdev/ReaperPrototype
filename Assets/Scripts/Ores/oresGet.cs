@@ -45,10 +45,18 @@ public class oresGet : MonoBehaviour
             if(stone != true)
             {
                 resourceHolder.wood += 1;
+                if (!slotManager.newItem.Contains("wood"))
+                {
+                    slotManager.newItem.Add("wood");                   
+                }
             }
             else
             {
                 resourceHolder.stone += 1;
+                if (!slotManager.newItem.Contains("stone"))
+                {
+                    slotManager.newItem.Add("stone");
+                }
             }
             Destroy(gameObject);
         }
